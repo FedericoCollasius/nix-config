@@ -188,3 +188,5 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec_always --no-startup-id "while true; do find ~/nix-config/modules/dotfiles/wallpapers -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1 | xargs feh --bg-fill; sleep 900; done &"

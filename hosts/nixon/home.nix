@@ -3,9 +3,9 @@
 {
 
   imports = [
-    ../../modules/vim.nix
-    ../../modules/i3.nix
-    ../../modules/git.nix
+    ../../modules/home/vim.nix
+    ../../modules/home/i3.nix
+    ../../modules/home/git.nix
   ];
   
   # Home Manager needs a bit of information about you and the paths it should

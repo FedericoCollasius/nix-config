@@ -1,12 +1,33 @@
-{ pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [ 
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ../../modules/system/scripts.nix
     ];
+ 
+  hardware.graphics = {
+    enable = true;
+  };
 
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+
+    powerManagement.enable = false;
+    
+    powerManagement.finegrained = false;
+
+    open = false;
+    
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -26,14 +47,12 @@
     enable = true;
     xkb.layout = "us";
     windowManager.i3.enable = true;
+    dpi = 100;
   };
 
    users.users.fede = {
      isNormalUser = true;
      extraGroups = [ "wheel" ];
-     packages = with pkgs; [
-       tree
-     ];
    };
 
   programs.firefox.enable = true;
@@ -52,6 +71,11 @@
     vlc
     telegram-desktop
     gh
+    davinci-resolve
+    xfce.thunar
+    ffmpeg
+    tree
+    feh
   ];
 
   home-manager = {

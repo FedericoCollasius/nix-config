@@ -76,6 +76,8 @@
     ffmpeg
     tree
     feh
+    flameshot
+    anki-bin
   ];
 
   home-manager = {

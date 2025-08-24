@@ -12,6 +12,8 @@
     enable = true;
   };
 
+  hardware.uinput.enable = true;
+
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
@@ -52,7 +54,7 @@
 
    users.users.fede = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ];
+     extraGroups = [ "wheel" "input" "uinput" ];
    };
 
   programs.firefox.enable = true;
@@ -78,6 +80,9 @@
     feh
     flameshot
     anki-bin
+    rustc
+    cargo
+    xremap
   ];
 
   home-manager = {

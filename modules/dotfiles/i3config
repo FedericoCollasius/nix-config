@@ -191,5 +191,6 @@ bar {
 
 exec_always --no-startup-id "while true; do find ~/nix-config/modules/dotfiles/wallpapers -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1 | xargs feh --bg-fill; sleep 900; done &"
 
-bindsym $mod+shift+o exec --no-startup-id i3-msg '[class="obsidian"] focus'
-bindsym $mod+o exec --no-startup-id sh -c 'pgrep -x obsidian || (i3-msg "workspace 9; exec obsidian")'
+bindsym $mod+Tab workspace next
+
+bindsym Print exec --no-startup-id flameshot gui

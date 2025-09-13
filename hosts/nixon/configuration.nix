@@ -71,7 +71,6 @@
     spotify
     pavucontrol
     vlc
-    telegram-desktop
     gh
     davinci-resolve
     xfce.thunar
@@ -83,6 +82,18 @@
     rustc
     cargo
     xremap
+    telegram-desktop
+    neovim
+    python3
+    python3Packages.pip
+    scala_2_13
+    sbt
+    jdk21_headless
+    haskell.compiler.native-bignum.ghcHEAD
+    cabal-install
+    stack
+    vscode
+    gnumake42
   ];
 
   home-manager = {
